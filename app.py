@@ -16,7 +16,9 @@ if hist_checkbox:
     st.write('Creación de un histograma con la información del conjunto de datos de anuncios de venta de coches')
     
     # crear el histograma 
-    histo = px.histogram(car_data, x='odometer')
+    histo = px.histogram(car_data,
+                         x='odometer', 
+                         color_discrete_sequence=px.colors.qualitative.Vivid)
     
     # mostrar el grafico 
     st.plotly_chart(histo, use_container_width=True)
@@ -32,7 +34,8 @@ if scatter_checkbox:
     scatter = px.scatter(car_data,
                          x='odometer',
                          y='price',
-                         color_continuous_scale='reds')
+                         color_continuous_scale='Inferno',
+                         template='plotly_dark')
     
     # mostrar el grafico 
     st.plotly_chart(scatter, use_container_width=True )
